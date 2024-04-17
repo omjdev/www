@@ -1,0 +1,89 @@
+/* Definição das variáveis */
+html {
+    --s: 250px; /* Tamanho do cubo */
+    --c1: #2C4B70; /* Cor 1 */
+    --c2: #215ea8; /* Cor 2 */
+    --c3: #88aaca; /* Cor 3 */
+    --border-color: #000000; /* Cor do contorno */
+
+    --_g: var(--c3) 0 120deg,#0000 0; /* Gradiente */
+    
+    /* Definição do background usando gradientes e linear-gradient */
+    background:
+      conic-gradient(from -60deg at 50% calc(100%/3),var(--_g)), /* Gradiente cônico */
+      conic-gradient(from 120deg at 50% calc(200%/3),var(--_g)), /* Gradiente cônico */
+      conic-gradient(from  60deg at calc((200%/3)),var(--c3) 60deg,var(--c2) 0 120deg,#0000 0), /* Gradiente cônico */
+      conic-gradient(from 180deg at calc(100%/3),var(--c1) 60deg,var(--_g)), /* Gradiente cônico */
+      linear-gradient(90deg,var(--c1)   calc(100%/6),var(--c2) 0 50%, var(--c1) 0 calc(500%/6),var(--c2) 0); /* Gradiente linear */
+    
+    background-size: calc(1.732*var(--s)) var(--s); /* Tamanho do background */
+    background-color: var(--c2); /* Cor de fundo da página */
+}
+
+/* Estilo padrão para o corpo e HTML */
+body, html {
+    height: 100%; /* Altura 100% */
+    margin: 0; /* Margem 0 */
+    font-family: 'Audiowide', cursive; /* Aplicar a fonte Audiowide */
+}
+
+/* Estilo para o cabeçalho */
+header {
+    display: flex; /* Display flex */
+    flex-direction: column; /* Direção da flexbox */
+    align-items: center; /* Alinhamento no centro */
+    padding: 20px; /* Preenchimento */
+}
+header img {
+    max-width: 50vw; /* Limita o tamanho do logo a 50% da largura visível */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+
+}
+
+/* Estilo para o nome da empresa */
+.company-name {
+    font-size: 2rem; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    text-transform: capitalize; /* Transformação de texto */
+    color: #ffffff; /* Cor branca */
+    text-shadow: 
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000; /* Simula um contorno preto */
+}
+/* Estilo para as atividades */
+.activities {
+    font-size: 1.5rem; /* Tamanho da fonte */
+    list-style-type: none; /* Remover estilo de lista */
+    padding: 0; /* Preenchimento 0 */
+    color: #ffffff; /* Cor branca */
+    text-align: center; /* Alinhar ao centro */
+}
+
+/* Estilo para o link de email */
+.email-link {
+    font-size: 1rem; /* Tamanho da fonte */
+    margin-top: 20px; /* Margem superior */
+    color: #ffffff; /* Cor branca */
+    text-align: center; /* Alinhar ao centro */
+    text-decoration: none; /* Remover sublinhado */
+}
+.email-link a {
+    color: #ffffff !important; /* Cor branca */
+}
+
+/* Estilo para o padrão dos cubos */
+html::before {
+    content: ''; /* Conteúdo vazio */
+    position: fixed; /* Posição fixa */
+    top: 0; /* Topo 0 */
+    left: 0; /* Esquerda 0 */
+    width: 100%; /* Largura 100% */
+    height: 100%; /* Altura 100% */
+    pointer-events: none; /* Não captura eventos do mouse */
+    z-index: -1; /* Z-index -1 (atrás do conteúdo) */
+    background-image: var(--background); /* Imagem de fundo */
+    border: 2px solid var(--border-color); /* Contorno preto */
+    box-sizing: border-box; /* Inclui a largura do contorno na dimensão */
+}
